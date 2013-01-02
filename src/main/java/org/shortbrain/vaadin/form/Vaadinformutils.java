@@ -1,4 +1,4 @@
-package org.xgbi.nexgen.support.form;
+package org.shortbrain.vaadin.form;
 
 /**
  * Module Vaadinformutils.
