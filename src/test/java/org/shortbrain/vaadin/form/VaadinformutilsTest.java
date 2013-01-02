@@ -1,4 +1,4 @@
-package org.shortbrain.vaadin;
+package org.shortbrain.vaadin.form;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
