@@ -45,11 +45,25 @@ public class ViewBoundForm extends Form {
      * Create a {@link ViewBoundForm} with the default FieldsHelper.
      */
     public ViewBoundForm() {
-        propertyDataSource = new HashMap<Object, Container>();
+        this(new HashMap<Object, Container>());
     }
-    
+
     public ViewBoundForm(ComponentContainer layout) {
-        this();
+        this(layout, new HashMap<Object, Container>());
+    }
+
+    public ViewBoundForm(Map<Object, Container> propertyDataSource) {
+        if (propertyDataSource == null) {
+            throw new IllegalArgumentException("propertyDataSource cannot be null");
+        }
+        this.propertyDataSource = propertyDataSource;
+    }
+
+    public ViewBoundForm(ComponentContainer layout, Map<Object, Container> propertyDataSource) {
+        this(propertyDataSource);
+        if (layout == null) {
+            throw new IllegalArgumentException("layout cannot be null");
+        }
         setContent(layout);
     }
 
@@ -79,14 +93,15 @@ public class ViewBoundForm extends Form {
             // necessary (e.g. CustomComponent)
             CssLayout cssLayout = new CssLayout();
             cssLayout.addComponent(layout);
-            if(layout.getWidthUnits() == UNITS_PERCENTAGE) {
+            if (layout.getWidthUnits() == UNITS_PERCENTAGE) {
                 cssLayout.setWidth("100%");
             }
-            if(layout.getHeightUnits() == UNITS_PERCENTAGE) {
+            if (layout.getHeightUnits() == UNITS_PERCENTAGE) {
                 cssLayout.setHeight("100%");
             }
             super.setLayout(cssLayout);
         }
+        setFormFieldFactory(new ViewBoundFormFieldFactory(propertyDataSource, super.getLayout()));
     }
 
     @Override

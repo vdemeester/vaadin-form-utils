@@ -1,5 +1,6 @@
 package org.shortbrain.vaadin.form.model;
 
+import com.vaadin.ui.AbstractSelect;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.ListSelect;
 import com.vaadin.ui.TextField;
@@ -22,16 +23,21 @@ public class VerticalBeanView extends VerticalLayout {
 
     public VerticalBeanView() {
         aStringField = new TextField();
-        aStringField.setCaption("a String");
+        aStringField.setCaption("A String");
         anIntegerField = new TextField();
-        anIntegerField.setCaption("an Integer");
+        anIntegerField.setCaption("An Integer");
         aDoubleField = new TextField();
-        aDoubleField.setCaption("a Double");
+        aDoubleField.setCaption("A Double");
         
         aValueOfField = new ComboBox();
         aValueOfField.setCaption("A value of");
+        aValueOfField.setItemCaptionMode(AbstractSelect.ITEM_CAPTION_MODE_PROPERTY);
+        aValueOfField.setItemCaptionPropertyId("value");
         aListField = new ListSelect();
         aListField.setCaption("A list of value from");
+        aListField.setMultiSelect(true);
+        aListField.setItemCaptionMode(AbstractSelect.ITEM_CAPTION_MODE_PROPERTY);
+        aListField.setItemCaptionPropertyId("value");
         
         this.addComponent(aStringField);
         this.addComponent(anIntegerField);
@@ -48,11 +54,11 @@ public class VerticalBeanView extends VerticalLayout {
         this.aStringField = aStringField;
     }
 
-    public TextField getAnIntegerField() {
+    public TextField getanIntegerField() {
         return anIntegerField;
     }
 
-    public void setAnIntegerField(TextField anIntegerField) {
+    public void setanIntegerField(TextField anIntegerField) {
         this.anIntegerField = anIntegerField;
     }
 
@@ -72,11 +78,11 @@ public class VerticalBeanView extends VerticalLayout {
         this.aValueOfField = aValueOfField;
     }
 
-    public ListSelect getaListfield() {
+    public ListSelect getaListField() {
         return aListField;
     }
 
-    public void setaListfield(ListSelect aListfield) {
+    public void setaListField(ListSelect aListfield) {
         this.aListField = aListfield;
     }
 

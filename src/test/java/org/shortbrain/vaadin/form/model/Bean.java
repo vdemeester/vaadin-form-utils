@@ -31,11 +31,11 @@ public class Bean {
         this.aString = aString;
     }
 
-    public Integer getAnInteger() {
+    public Integer getanInteger() {
         return anInteger;
     }
 
-    public void setAnInteger(Integer anInteger) {
+    public void setanInteger(Integer anInteger) {
         this.anInteger = anInteger;
     }
 
