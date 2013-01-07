@@ -101,7 +101,7 @@ public class ViewBoundForm extends Form {
             }
             super.setLayout(cssLayout);
         }
-        setFormFieldFactory(new ViewBoundFormFieldFactory(propertyDataSource, super.getLayout()));
+        setFormFieldFactory(new ViewBoundFormFieldFactory(propertyDataSource, layout));
     }
 
     @Override

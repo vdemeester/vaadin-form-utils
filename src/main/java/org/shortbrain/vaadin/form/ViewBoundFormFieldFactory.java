@@ -8,6 +8,7 @@ import org.apache.commons.beanutils.PropertyUtils;
 import com.vaadin.data.Container;
 import com.vaadin.data.Item;
 import com.vaadin.ui.Component;
+import com.vaadin.ui.ComponentContainer;
 import com.vaadin.ui.Field;
 import com.vaadin.ui.FieldFactory;
 import com.vaadin.ui.FormFieldFactory;
@@ -25,7 +26,7 @@ public class ViewBoundFormFieldFactory implements FormFieldFactory {
     private static final long serialVersionUID = -676197212496028316L;
 
     private Map<Object, Container> propertyDataSource;
-    private Layout layout;
+    private ComponentContainer layout;
 
     /**
      * Creates a {@link ViewBoundFormFieldFactory} with the propert
@@ -33,7 +34,7 @@ public class ViewBoundFormFieldFactory implements FormFieldFactory {
      * @param propertyDataSource
      * @param layout
      */
-    public ViewBoundFormFieldFactory(Map<Object, Container> propertyDataSource, Layout layout) {
+    public ViewBoundFormFieldFactory(Map<Object, Container> propertyDataSource, ComponentContainer layout) {
         this.propertyDataSource = propertyDataSource;
         this.layout = layout;
     }
