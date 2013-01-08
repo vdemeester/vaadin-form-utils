@@ -89,7 +89,7 @@
 				<version>0.6</version>
 				<configuration>
 					<message>Creating site for ${project.version}</message>
-					<repositoryName>vaadin-container-utils</repositoryName>
+					<repositoryName>vaadin-form-utils</repositoryName>
 					<repositoryOwner>vdemeester</repositoryOwner>
 				</configuration>
 				<executions>
