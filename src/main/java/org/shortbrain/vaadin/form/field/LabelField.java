@@ -22,6 +22,7 @@ public class LabelField extends Label implements Field, Focusable {
 
     @Override
     public boolean isInvalidCommitted() {
+        // Do nothing, read-only field, never changing.
         return false;
     }
 
@@ -97,7 +98,7 @@ public class LabelField extends Label implements Field, Focusable {
 
     @Override
     public boolean isInvalidAllowed() {
-        // TODO Auto-generated method stub
+        // Do nothing, read-only field, never changing.
         return false;
     }
 
