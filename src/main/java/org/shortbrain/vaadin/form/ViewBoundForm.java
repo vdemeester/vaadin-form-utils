@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.vaadin.data.Container;
 import com.vaadin.data.Item;
+import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.ui.ComponentContainer;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.CustomComponent;
@@ -32,7 +33,7 @@ import com.vaadin.ui.Layout;
  * @author Vincent Demeester <vincent+git@demeester.fr>
  * 
  */
-public class ViewBoundForm extends Form {
+public class ViewBoundForm extends Form implements ValueChangeListener {
 
     private static final long serialVersionUID = 3644494410218426355L;
 
@@ -111,6 +112,13 @@ public class ViewBoundForm extends Form {
         } else {
             setContent(newLayout);
         }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public void valueChange(ValueChangeEvent event) {
+        fireEvent(event);
     }
 
     @Override

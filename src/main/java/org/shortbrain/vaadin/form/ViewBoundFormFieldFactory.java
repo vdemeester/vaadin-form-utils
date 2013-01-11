@@ -10,9 +10,7 @@ import com.vaadin.data.Item;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.ComponentContainer;
 import com.vaadin.ui.Field;
-import com.vaadin.ui.FieldFactory;
 import com.vaadin.ui.FormFieldFactory;
-import com.vaadin.ui.Layout;
 
 /**
  * {@link FormFieldFactory} implementation used for {@link ViewBoundForm}. It takes an algorithm to get the fields from the view, add some
@@ -76,7 +74,11 @@ public class ViewBoundFormFieldFactory implements FormFieldFactory {
     }
 
     /**
-     * Find the field by looking for getter. It uses the BeanUtils {@link PropertyUtils#getProperty(Object, String)} methd.
+     * Find the field by looking for getter. It uses the BeanUtils {@link PropertyUtils#getProperty(Object, String)} method.
+     * 
+     * <p>
+     * If the propertyId contains the ".", it will replace them with "_" to look for the Field.
+     * </p>
      * 
      * @param view
      * @param propertyId
@@ -91,7 +93,11 @@ public class ViewBoundFormFieldFactory implements FormFieldFactory {
         if (!(propertyId instanceof String)) {
             throw new IllegalArgumentException("the propertyId has to be be a String.");
         }
-        Object field = PropertyUtils.getProperty(view, (String) propertyId);
+        String propertyName = (String) propertyId;
+        if (propertyName.contains(".")) {
+            propertyName = propertyName.replace(".", "_");
+        }
+        Object field = PropertyUtils.getProperty(view, propertyName);
         if (field instanceof Field) {
             return (Field) field;
         } else {
