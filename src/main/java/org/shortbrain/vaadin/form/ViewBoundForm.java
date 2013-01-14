@@ -114,20 +114,24 @@ public class ViewBoundForm extends Form implements ValueChangeListener {
         }
     }
 
+
     /**
      * {@inheritDoc}
      */
     public void valueChange(ValueChangeEvent event) {
+        System.out.println(event);
         fireEvent(event);
     }
 
     @Override
     protected void attachField(Object propertyId, Field field) {
         // Doing nothing as fields are already attached.
+        field.addListener((ValueChangeListener) this);
     }
 
     @Override
     protected void detachField(Field field) {
+        // field.removeListener((ValueChangeListener) this);
         // Doing nothing as fiels are already attached.
     }
 
