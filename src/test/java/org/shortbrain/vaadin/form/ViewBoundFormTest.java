@@ -120,7 +120,7 @@ public class ViewBoundFormTest {
         VerticalBeanView view = new VerticalBeanView();
         ViewBoundForm viewBoundForm = new ViewBoundForm(propertyDataSource);
         viewBoundForm.setContent(view);
-        for (int i = 0; i < NB_BEANS; i++) {
+        for (int i = 0; i < 1; i++) {
             viewBoundForm.setItemDataSource(container.getItem(1 + i));
             validate(viewBoundForm, i);
         }

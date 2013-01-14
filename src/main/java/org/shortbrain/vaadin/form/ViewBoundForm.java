@@ -1,11 +1,14 @@
 package org.shortbrain.vaadin.form;
 
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.vaadin.data.Container;
 import com.vaadin.data.Item;
+import com.vaadin.data.Property;
 import com.vaadin.data.Property.ValueChangeListener;
+import com.vaadin.ui.AbstractField;
 import com.vaadin.ui.ComponentContainer;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.CustomComponent;
@@ -33,7 +36,7 @@ import com.vaadin.ui.Layout;
  * @author Vincent Demeester <vincent+git@demeester.fr>
  * 
  */
-public class ViewBoundForm extends Form implements ValueChangeListener {
+public class ViewBoundForm extends Form {
 
     private static final long serialVersionUID = 3644494410218426355L;
 
@@ -41,6 +44,8 @@ public class ViewBoundForm extends Form implements ValueChangeListener {
      * The map of data source by properties
      */
     private Map<Object, Container> propertyDataSource;
+    
+    private ViewBoundFormValueChangeListener internalListener;
 
     /**
      * Create a {@link ViewBoundForm} with the default FieldsHelper.
@@ -114,25 +119,34 @@ public class ViewBoundForm extends Form implements ValueChangeListener {
         }
     }
 
-
-    /**
-     * {@inheritDoc}
-     */
-    public void valueChange(ValueChangeEvent event) {
-        System.out.println(event);
-        fireEvent(event);
-    }
-
     @Override
     protected void attachField(Object propertyId, Field field) {
         // Doing nothing as fields are already attached.
-        field.addListener((ValueChangeListener) this);
+        if (internalListener == null) {
+            internalListener = new ViewBoundFormValueChangeListener(this);
+        }
+        field.addListener(internalListener);
     }
 
     @Override
     protected void detachField(Field field) {
         // field.removeListener((ValueChangeListener) this);
         // Doing nothing as fiels are already attached.
+    }
+
+    private static class ViewBoundFormValueChangeListener implements ValueChangeListener {
+
+        private ViewBoundForm form;
+        
+        public ViewBoundFormValueChangeListener(ViewBoundForm form) {
+            this.form = form;
+        }
+        
+        @Override
+        public void valueChange(com.vaadin.data.Property.ValueChangeEvent event) {
+            form.fireEvent(new ValueChangeEvent(form));
+        }
+        
     }
 
 }
