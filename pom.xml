@@ -10,7 +10,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.shortbrain.vaadin</groupId>
 	<artifactId>vaadin-form-utils</artifactId>
-	<version>0.1.0</version>
+	<version>0.1.1-SNAPSHOT</version>
 	<name>vaadin-form-utils</name>
 	<description />
 	<packaging>jar</packaging>
@@ -172,7 +172,7 @@
 		<connection>scm:git:github.com/vdemeester/vaadin-container-utils.git</connection>
 		<developerConnection>scm:git:git@github.com:vdemeester/vaadin-container-utils.git</developerConnection>
 		<url>https://github.com/vdemeester/vaadin-form-utils</url>
-	  <tag>v0.1.0</tag>
+	  <tag>HEAD</tag>
   </scm>
 	<reporting>
 		<plugins>
