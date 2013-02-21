@@ -122,7 +122,7 @@ public class ViewBoundForm extends Form {
     /**
      * 
      */
-    public void addLayout(Layout newLayout) {
+    public void addLayout(ComponentContainer newLayout) {
         if (newLayout != null) {
             if (!additionnalLayouts.contains(newLayout)) {
                 additionnalLayouts.add(newLayout);
