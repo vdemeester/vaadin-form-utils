@@ -2,6 +2,7 @@ package org.shortbrain.vaadin.form;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.beanutils.PropertyUtils;
 
@@ -25,6 +26,7 @@ public class ViewBoundFormFieldFactory implements FormFieldFactory {
 
     private Map<Object, Container> propertyDataSource;
     private ComponentContainer layout;
+    private Set<ComponentContainer> additonnalLayouts;
 
     /**
      * Creates a {@link ViewBoundFormFieldFactory} with the propert
@@ -32,15 +34,24 @@ public class ViewBoundFormFieldFactory implements FormFieldFactory {
      * @param propertyDataSource
      * @param layout
      */
-    public ViewBoundFormFieldFactory(Map<Object, Container> propertyDataSource, ComponentContainer layout) {
+    public ViewBoundFormFieldFactory(Map<Object, Container> propertyDataSource, ComponentContainer layout, Set<ComponentContainer> additonnalLayouts) {
         this.propertyDataSource = propertyDataSource;
         this.layout = layout;
+        this.additonnalLayouts = additonnalLayouts;
     }
 
     @Override
     public Field createField(Item item, Object propertyId, Component uiContext) {
         Field f = null;
         f = findField(layout, propertyId);
+        if (f == null) {
+            for (ComponentContainer cc : additonnalLayouts) {
+                f = findField(cc, propertyId);
+                if (f != null) {
+                    break;
+                }
+            }
+        }
         return f;
     }
 

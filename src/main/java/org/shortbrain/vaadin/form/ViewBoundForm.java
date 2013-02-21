@@ -1,14 +1,12 @@
 package org.shortbrain.vaadin.form;
 
-import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import com.vaadin.data.Container;
 import com.vaadin.data.Item;
-import com.vaadin.data.Property;
-import com.vaadin.data.Property.ValueChangeListener;
-import com.vaadin.ui.AbstractField;
 import com.vaadin.ui.ComponentContainer;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.CustomComponent;
@@ -44,6 +42,8 @@ public class ViewBoundForm extends Form {
      * The map of data source by properties
      */
     private Map<Object, Container> propertyDataSource;
+    
+    private Set<ComponentContainer> additionnalLayouts = new HashSet<ComponentContainer>();
     
     private ViewBoundFormValueChangeListener internalListener;
 
@@ -107,7 +107,7 @@ public class ViewBoundForm extends Form {
             }
             super.setLayout(cssLayout);
         }
-        setFormFieldFactory(new ViewBoundFormFieldFactory(propertyDataSource, layout));
+        setFormFieldFactory(new ViewBoundFormFieldFactory(propertyDataSource, layout, additionnalLayouts));
     }
 
     @Override
@@ -116,6 +116,17 @@ public class ViewBoundForm extends Form {
             super.setLayout(newLayout);
         } else {
             setContent(newLayout);
+        }
+    }
+    
+    /**
+     * 
+     */
+    public void addLayout(Layout newLayout) {
+        if (newLayout != null) {
+            if (!additionnalLayouts.contains(newLayout)) {
+                additionnalLayouts.add(newLayout);
+            }
         }
     }
 
