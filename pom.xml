@@ -10,7 +10,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.shortbrain.vaadin</groupId>
 	<artifactId>vaadin-form-utils</artifactId>
-	<version>0.1.1-SNAPSHOT</version>
+	<version>0.1.2-SNAPSHOT</version>
 	<name>vaadin-form-utils</name>
 	<description />
 	<packaging>jar</packaging>
