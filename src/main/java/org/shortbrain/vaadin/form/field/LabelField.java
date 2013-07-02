@@ -16,7 +16,7 @@ import com.vaadin.ui.Component.Focusable;
  * @author Vincent Demeester <vincent+git@demeester.fr>
  * 
  */
-public class LabelField extends Label implements Field, Focusable {
+public class LabelField extends Label implements Field<String>, Focusable {
 
     private int tabIndex = 0;
 
@@ -38,28 +38,6 @@ public class LabelField extends Label implements Field, Focusable {
 
     @Override
     public void discard() throws SourceException {
-        // Do nothing, read-only field, never changing.
-    }
-
-    @Override
-    public boolean isWriteThrough() {
-        // Do nothing, read-only field, never changing.
-        return false;
-    }
-
-    @Override
-    public void setWriteThrough(boolean writeThrough) throws SourceException, InvalidValueException {
-        // Do nothing, read-only field, never changing.
-    }
-
-    @Override
-    public boolean isReadThrough() {
-        // Do nothing, read-only field, never changing.
-        return false;
-    }
-
-    @Override
-    public void setReadThrough(boolean readThrough) throws SourceException {
         // Do nothing, read-only field, never changing.
     }
 
@@ -142,4 +120,28 @@ public class LabelField extends Label implements Field, Focusable {
         // Do nothing, read-only field, never changing.
         return null;
     }
+
+	@Override
+	public void setBuffered(boolean buffered) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean isBuffered() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void removeAllValidators() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setValue(String newValue)
+			throws com.vaadin.data.Property.ReadOnlyException {
+		super.setValue(newValue);
+	}
 }

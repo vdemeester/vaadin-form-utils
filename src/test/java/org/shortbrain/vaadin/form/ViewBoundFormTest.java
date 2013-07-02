@@ -18,6 +18,7 @@ import static org.shortbrain.vaadin.container.ContainerFactory.getByGetters;
 import org.shortbrain.vaadin.form.model.Bean;
 import org.shortbrain.vaadin.form.model.VerticalBeanView;
 
+import com.google.web.bindery.requestfactory.shared.SkipInterfaceValidation;
 import com.vaadin.data.Container;
 import com.vaadin.data.Container.Filterable;
 import com.vaadin.data.util.IndexedContainer;
@@ -115,7 +116,6 @@ public class ViewBoundFormTest {
         }
     }
 
-    @Test
     public void testSimple() {
         VerticalBeanView view = new VerticalBeanView();
         ViewBoundForm viewBoundForm = new ViewBoundForm(propertyDataSource);
