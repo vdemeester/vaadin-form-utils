@@ -8,7 +8,7 @@
 	governing permissions and limitations under the License. -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.shortbrain.vaadin</groupId>
+	<groupId>org.xgbi.vaadin</groupId>
 	<artifactId>vaadin-form-utils</artifactId>
 	<version>0.1.2-SNAPSHOT</version>
 	<name>vaadin-form-utils</name>
@@ -174,9 +174,9 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:git:github.com/vdemeester/vaadin-container-utils.git</connection>
-		<developerConnection>scm:git:git@github.com:vdemeester/vaadin-container-utils.git</developerConnection>
-		<url>https://github.com/vdemeester/vaadin-form-utils</url>
+		<connection>scm:git:github.com/xgbi/vaadin-container-utils.git</connection>
+		<developerConnection>scm:git:git@github.com:xgbi/vaadin-container-utils.git</developerConnection>
+		<url>https://github.com/xgbi/vaadin-form-utils</url>
 	  <tag>HEAD</tag>
   </scm>
 	<reporting>
