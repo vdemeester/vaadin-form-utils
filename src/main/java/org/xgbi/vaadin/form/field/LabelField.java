@@ -1,4 +1,4 @@
-package org.shortbrain.vaadin.form.field;
+package org.xgbi.vaadin.form.field;
 
 import java.util.Collection;
 

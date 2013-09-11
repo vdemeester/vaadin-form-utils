@@ -1,4 +1,4 @@
-package org.shortbrain.vaadin.form;
+package org.xgbi.vaadin.form;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,9 +14,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.shortbrain.vaadin.container.ContainerFactory;
+
 import static org.shortbrain.vaadin.container.ContainerFactory.getByGetters;
-import org.shortbrain.vaadin.form.model.Bean;
-import org.shortbrain.vaadin.form.model.VerticalBeanView;
+
+import org.xgbi.vaadin.form.ViewBoundForm;
+import org.xgbi.vaadin.form.model.Bean;
+import org.xgbi.vaadin.form.model.VerticalBeanView;
 
 import com.google.web.bindery.requestfactory.shared.SkipInterfaceValidation;
 import com.vaadin.data.Container;

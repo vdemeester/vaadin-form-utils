@@ -1,4 +1,4 @@
-package org.shortbrain.vaadin.form.model;
+package org.xgbi.vaadin.form.model;
 
 import com.vaadin.ui.AbstractSelect;
 import com.vaadin.ui.ComboBox;

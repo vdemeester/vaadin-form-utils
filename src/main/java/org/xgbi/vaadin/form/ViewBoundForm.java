@@ -1,4 +1,4 @@
-package org.shortbrain.vaadin.form;
+package org.xgbi.vaadin.form;
 
 import java.util.HashMap;
 import java.util.HashSet;

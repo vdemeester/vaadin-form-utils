@@ -1,8 +1,8 @@
-package org.shortbrain.vaadin.form.model;
+package org.xgbi.vaadin.form.model;
 
 import java.util.List;
 
-import org.shortbrain.vaadin.form.ViewBoundForm;
+import org.xgbi.vaadin.form.ViewBoundForm;
 
 /**
  * This is a simple class that will be used to test {@link ViewBoundForm} and stuff.
