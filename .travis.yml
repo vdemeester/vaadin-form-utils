@@ -6,3 +6,5 @@ jdk:
 branches:
   except:
     - master
+
+sudo: false
